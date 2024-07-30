@@ -1,0 +1,39 @@
+{
+  "name": "@the-draupnir-project/matrix-basic-types",
+  "version": "0.0.0",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "author": {
+    "name": "Gnuxie",
+    "email": "Gnuxie@protonmail.com"
+  },
+  "license": "Apache-2.0",
+  "repository": {
+    "url": "https://github.com/the-draupnir-project/matrix-basic-types.git",
+    "type": "git"
+  },
+  "private": false,
+  "scripts": {
+    "build": "rm -rf dist && yarn tsc --project tsconfig.json",
+    "lint": "yarn eslint && yarn prettier src --check",
+    "prepare": "yarn build"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.8.0",
+    "@gnuxie/tsconfig": "^0.5.3",
+    "@types/eslint__js": "^8.42.3",
+    "@types/glob-to-regexp": "^0.4.4",
+    "@types/node": "^22.0.0",
+    "eslint": "^9.8.0",
+    "prettier": "^3.3.3",
+    "typescript": "^5.5.4",
+    "typescript-eslint": "^7.18.0"
+  },
+  "dependencies": {
+    "@gnuxie/typescript-result": "^0.2.0",
+    "glob-to-regexp": "^0.4.1"
+  }
+}
