@@ -319,10 +319,10 @@
   resolved "https://registry.yarnpkg.com/@gnuxie/tsconfig/-/tsconfig-0.5.3.tgz#63dcd8161aaf7b8dbd5d8836f06f25ed82778831"
   integrity sha512-ENLfmCq7rKrgo03jZBZfZBeAcld6RHpUTmZ7rDB7c1clwEvDkP0BI1C/5TrPoIkRYKnpV55GSHxZDPNqseqq3A==
 
-"@gnuxie/typescript-result@^0.2.0":
-  version "0.2.0"
-  resolved "https://registry.yarnpkg.com/@gnuxie/typescript-result/-/typescript-result-0.2.0.tgz#870e29d079341c32a7cae7e0ee77ffdd09aad60f"
-  integrity sha512-V5VZUpl21fRNTBHqdigWVkkXhoue/6MVfpWLBOMVgi5unR4ePoXjzNXc9diNmnmDe+mrQfXGPT8LiB18Cc+0Ig==
+"@gnuxie/typescript-result@^1.0.0":
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/@gnuxie/typescript-result/-/typescript-result-1.0.0.tgz#d96ae02123261e42c03b2046e78d0cd6c5a24fb4"
+  integrity sha512-evHf0XIR2wrpc8iDfQKaU+9jwrutjbDfnjmZOLij+8aFKjpOi4oSzaUfUBv89WyvEW0XtUZPUQpSe5KiE9t1ng==
 
 "@humanwhocodes/module-importer@^1.0.1":
   version "1.0.1"

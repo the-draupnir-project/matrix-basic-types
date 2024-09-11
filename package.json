@@ -37,7 +37,7 @@
     "typescript-eslint": "^7.18.0"
   },
   "dependencies": {
-    "@gnuxie/typescript-result": "^0.2.0",
+    "@gnuxie/typescript-result": "^1.0.0",
     "glob-to-regexp": "^0.4.1"
   }
 }
