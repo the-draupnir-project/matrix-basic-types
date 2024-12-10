@@ -10,8 +10,10 @@
 const StringRoomAliasRegex =
   /^#(?<roomAliasLocalpart>[^\s:]*):(?<roomAliasServerName>\S*)$/;
 
-const StringRoomAliasSecret = Symbol("StringRoomAlias");
-export type StringRoomAlias = string & { [StringRoomAliasSecret]: true };
+export type StringRoomAliasBrand = {
+  readonly StringRoomAlias: unique symbol;
+};
+export type StringRoomAlias = string & StringRoomAliasBrand;
 
 export function isStringRoomAlias(string: string): string is StringRoomAlias {
   return StringRoomAliasRegex.test(string);

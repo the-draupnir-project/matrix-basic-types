@@ -7,8 +7,10 @@
 // https://github.com/the-draupnir-project/neightrix-basic-types
 // </text>
 
-const StringEventIDSecret = Symbol("StringEventID");
-export type StringEventID = string & { [StringEventIDSecret]: true };
+export type StringEventIDBrand = {
+  readonly StringEventID: unique symbol;
+};
+export type StringEventID = string & StringEventIDBrand;
 
 export function isStringEventID(string: string): string is StringEventID {
   return string.startsWith("$");

@@ -9,8 +9,10 @@
 
 const StringRoomIDRegex = /^![^:]*:\S*/;
 
-const StringRoomIDSecret = Symbol("StringRoomID");
-export type StringRoomID = string & { [StringRoomIDSecret]: true };
+export type StringRoomIDBrand = {
+  readonly StringRoomID: unique symbol;
+};
+export type StringRoomID = string & StringRoomIDBrand;
 
 export function isStringRoomID(string: string): string is StringRoomID {
   return StringRoomIDRegex.test(string);

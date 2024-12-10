@@ -9,8 +9,10 @@
 
 const StringUserIDRegex = /^@(?<localpart>[^\s:]*):(?<serverName>\S*)$/;
 
-const UserIDSecret = Symbol("StringUserID");
-export type StringUserID = string & { [UserIDSecret]: true };
+export type StringUserIDBrand = {
+  readonly StringUserID: unique symbol;
+};
+export type StringUserID = string & StringUserIDBrand;
 
 export function isStringUserID(string: string): string is StringUserID {
   return StringUserIDRegex.test(string);
