@@ -14,6 +14,14 @@ export type StringRoomAliasBrand = {
   readonly StringRoomAlias: unique symbol;
 };
 export type StringRoomAlias = string & StringRoomAliasBrand;
+export function StringRoomAlias<T>(
+  value: unknown
+): T extends StringRoomAlias ? StringRoomAlias : never {
+  if (typeof value === "string" && isStringRoomAlias(value)) {
+    return value as T extends StringRoomAlias ? StringRoomAlias : never;
+  }
+  throw new TypeError("Not a valid StringRoomAlias");
+}
 
 export function isStringRoomAlias(string: string): string is StringRoomAlias {
   return StringRoomAliasRegex.test(string);

@@ -15,3 +15,12 @@ export type StringEventID = string & StringEventIDBrand;
 export function isStringEventID(string: string): string is StringEventID {
   return string.startsWith("$");
 }
+
+export function StringEventID<T>(
+  value: string
+): T extends StringEventID ? StringEventID : never {
+  if (isStringEventID(value)) {
+    return value as T extends StringEventID ? StringEventID : never;
+  }
+  throw new TypeError("Not a valid StringEventID");
+}

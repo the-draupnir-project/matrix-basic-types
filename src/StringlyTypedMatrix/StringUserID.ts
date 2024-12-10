@@ -18,6 +18,15 @@ export function isStringUserID(string: string): string is StringUserID {
   return StringUserIDRegex.test(string);
 }
 
+export function StringUserID<T>(
+  string: unknown
+): T extends StringUserID ? StringUserID : never {
+  if (typeof string === "string" && isStringUserID(string)) {
+    return string as T extends StringUserID ? StringUserID : never;
+  }
+  throw new TypeError("Not a valid StringUserID");
+}
+
 export function userServerName(userID: StringUserID): string {
   const match = StringUserIDRegex.exec(userID)?.groups?.serverName;
   if (match === undefined) {

@@ -3,13 +3,13 @@
 // SPDX-License-Identifier: Apache-2.0
 import {
   StringRoomAlias,
-  StringUserID,
   isStringRoomAlias,
   isStringRoomID,
   isStringUserID,
   roomAliasLocalpart,
   userServerName,
   userLocalpart,
+  StringUserID,
 } from "./";
 
 test("isStringUserID", function () {
@@ -18,13 +18,13 @@ test("isStringUserID", function () {
 });
 
 test("StringUserID serverName", function () {
-  expect(userServerName("@foo:localhost:9999" as StringUserID)).toBe(
+  expect(userServerName(StringUserID("@foo:localhost:9999"))).toBe(
     "localhost:9999"
   );
 });
 
 test("StringUserID localpart", function () {
-  expect(userLocalpart("@foo:localhost:9999" as StringUserID)).toBe("foo");
+  expect(userLocalpart(StringUserID("@foo:localhost:9999"))).toBe("foo");
 });
 
 test("StringRoomID", function () {
@@ -38,5 +38,5 @@ test("StringRoomAlias", function () {
 });
 
 test("StringRoomAlias roomAliasLocalpart", function () {
-  expect(roomAliasLocalpart("#foo:example.com" as StringRoomAlias)).toBe("foo");
+  expect(roomAliasLocalpart(StringRoomAlias("#foo:example.com"))).toBe("foo");
 });

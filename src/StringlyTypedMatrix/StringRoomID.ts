@@ -17,3 +17,12 @@ export type StringRoomID = string & StringRoomIDBrand;
 export function isStringRoomID(string: string): string is StringRoomID {
   return StringRoomIDRegex.test(string);
 }
+
+export function StringRoomID<T>(
+  value: unknown
+): T extends StringRoomID ? StringRoomID : never {
+  if (typeof value === "string" && isStringRoomID(value)) {
+    return value as T extends StringRoomID ? StringRoomID : never;
+  }
+  throw new TypeError("Not a valid StringRoomID");
+}
