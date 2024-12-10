@@ -11,6 +11,15 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.0.0] - 2024-12-10
+
+### Changed
+
+- The branding technique for string types such as `StringUserID` has
+  been changed to enable compatibility with libraries like zod, which
+  seem to want to structurally replicate types rather than refer to
+  them by name.
+
 ## [0.2.0] - 2024-09-11
 
 ### Changed
