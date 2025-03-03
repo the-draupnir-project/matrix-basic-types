@@ -17,6 +17,18 @@ import {
 } from "../StringlyTypedMatrix";
 import { Permalinks } from "./Permalinks";
 
+/**
+ * Some servers can return a huge list of via servers for a room which can
+ * cause some pretty serious problems for message rendering.
+ */
+function limitViaServers(viaServers: string[]): string[] {
+  if (viaServers.length > 5) {
+    return viaServers.slice(0, 5);
+  } else {
+    return viaServers;
+  }
+}
+
 export type MatrixRoomReference = MatrixRoomID | MatrixRoomAlias;
 
 // we disable this warning because it's not relevant, we're not making a module
@@ -89,10 +101,13 @@ export namespace MatrixRoomReference {
  * and some of them require extra steps to be useful in certain contexts (aliases, permalinks).
  */
 abstract class AbstractMatrixRoomReference {
+  private readonly viaServers: string[];
   protected constructor(
     protected readonly reference: StringRoomID | StringRoomAlias,
-    protected readonly viaServers: string[] = []
-  ) {}
+    viaServers: string[] = []
+  ) {
+    this.viaServers = limitViaServers(viaServers);
+  }
 
   public toPermalink(): string {
     return Permalinks.forRoom(this.reference, this.viaServers);
