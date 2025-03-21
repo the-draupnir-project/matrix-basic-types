@@ -20,6 +20,9 @@ import {
   isStringUserID,
 } from "../StringlyTypedMatrix";
 
+export const MatrixToRegex =
+  /^https:\/\/matrix\.to\/#\/(?<entity>[^/?]+)\/?(?<eventId>[^?]+)?(?<query>\?[^]*)?$/;
+
 /**
  * The parts of a permalink.
  * @see Permalinks
@@ -114,10 +117,7 @@ export class Permalinks {
    * @returns {PermalinkParts} The parts of the permalink.
    */
   public static parseUrl(matrixTo: string): Result<PermalinkParts> {
-    const matrixToRegexp =
-      /^https:\/\/matrix\.to\/#\/(?<entity>[^/?]+)\/?(?<eventId>[^?]+)?(?<query>\?[^]*)?$/;
-
-    const url = matrixToRegexp.exec(matrixTo)?.groups;
+    const url = MatrixToRegex.exec(matrixTo)?.groups;
     if (!url) {
       return ResultError.Result(`Not a valid matrix.to URL: ${matrixTo}`);
     }
