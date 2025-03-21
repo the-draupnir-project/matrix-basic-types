@@ -7,7 +7,13 @@
 // https://github.com/the-draupnir-project/neightrix-basic-types
 // </text>
 
-const StringUserIDRegex = /^@(?<localpart>[^\s:]*):(?<serverName>\S*)$/;
+import { StringServerName } from "./StringServerName";
+
+/**
+ * Do not use this, Synapse does not validate user ids and it isn't an auth check....
+ */
+export const HistoricalStringUserIDLocalpartRegex = /(?<localpart>[!-9;-~]+)/;
+export const StringUserIDRegex = /^@(?<localpart>[^:]*):(?<serverName>\S*)$/;
 
 export type StringUserIDBrand = {
   readonly StringUserID: unique symbol;
@@ -27,12 +33,12 @@ export function StringUserID<T>(
   throw new TypeError("Not a valid StringUserID");
 }
 
-export function userServerName(userID: StringUserID): string {
+export function userServerName(userID: StringUserID): StringServerName {
   const match = StringUserIDRegex.exec(userID)?.groups?.serverName;
   if (match === undefined) {
     throw new TypeError("Somehow a StringUserID was created that is invalid.");
   }
-  return match;
+  return match as StringServerName;
 }
 
 export function userLocalpart(userID: StringUserID): string {

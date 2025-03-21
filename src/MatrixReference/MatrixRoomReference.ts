@@ -1,10 +1,10 @@
-// SPDX-FileCopyrightText: 2022 - 2024 Gnuxie <Gnuxie@protonmail.com>
+// SPDX-FileCopyrightText: 2022 - 2025 Gnuxie <Gnuxie@protonmail.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 //
 // SPDX-FileAttributionText: <text>
-// This modified file incorporates work from neightrix-basic-types
-// https://github.com/the-draupnir-project/neightrix-basic-types
+// This modified file incorporates work from matrix-basic-types
+// https://github.com/the-draupnir-project/matrix-basic-types
 // </text>
 
 import { Ok, Result, ResultError, isError } from "@gnuxie/typescript-result";
@@ -14,8 +14,11 @@ import {
   StringRoomID,
   isStringRoomAlias,
   isStringRoomID,
+  roomAliasServerName,
+  roomIDServerName,
 } from "../StringlyTypedMatrix";
 import { Permalinks } from "./Permalinks";
+import { StringServerName } from "../StringlyTypedMatrix/StringServerName";
 
 /**
  * Some servers can return a huge list of via servers for a room which can
@@ -147,6 +150,10 @@ export class MatrixRoomID extends AbstractMatrixRoomReference {
   public toRoomIDOrAlias(): StringRoomID {
     return this.reference as StringRoomID;
   }
+
+  public get serverName(): StringServerName {
+    return roomIDServerName(this.reference as StringRoomID);
+  }
 }
 
 /**
@@ -163,6 +170,10 @@ export class MatrixRoomAlias extends AbstractMatrixRoomReference {
 
   public toRoomIDOrAlias(): StringRoomAlias {
     return this.reference as StringRoomAlias;
+  }
+
+  public get serverName(): StringServerName {
+    return roomAliasServerName(this.reference as StringRoomAlias);
   }
 }
 

@@ -1,4 +1,4 @@
-// SPDX-FileCopyrightText: 2023 - 2024 Gnuxie <Gnuxie@protonmail.com>
+// SPDX-FileCopyrightText: 2023 - 2025 Gnuxie <Gnuxie@protonmail.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -10,4 +10,5 @@
 export * from "./StringEventID";
 export * from "./StringRoomAlias";
 export * from "./StringRoomID";
+export * from "./StringServerName";
 export * from "./StringUserID";

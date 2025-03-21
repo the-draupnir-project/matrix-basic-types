@@ -10,11 +10,16 @@ import {
   userServerName,
   userLocalpart,
   StringUserID,
+  isStringServerName,
+  roomIDServerName,
+  StringRoomID,
+  roomAliasServerName,
 } from "./";
 
 test("isStringUserID", function () {
   expect(isStringUserID("@foo:localhost:9999")).toBe(true);
   expect(isStringUserID("@foo@mastodon.social")).toBe(false);
+  expect(isStringUserID("@ synapse is really bad :example.com")).toBe(true);
 });
 
 test("StringUserID serverName", function () {
@@ -32,6 +37,12 @@ test("StringRoomID", function () {
   expect(isStringRoomID("@foo:localhost:9999")).toBe(false);
 });
 
+test("StringRoomID serverName", function () {
+  expect(roomIDServerName(StringRoomID("!foo:localhost:9999"))).toBe(
+    "localhost:9999"
+  );
+});
+
 test("StringRoomAlias", function () {
   expect(isStringRoomAlias("#foo:example.com")).toBe(true);
   expect(isStringRoomAlias("!foo:example.com")).toBe(false);
@@ -40,3 +51,15 @@ test("StringRoomAlias", function () {
 test("StringRoomAlias roomAliasLocalpart", function () {
   expect(roomAliasLocalpart(StringRoomAlias("#foo:example.com"))).toBe("foo");
 });
+
+test("StringroomAlias serverName", function () {
+  expect(roomAliasServerName(StringRoomAlias("#foo:localhost:9999"))).toBe(
+    "localhost:9999"
+  );
+});
+
+test("StringServerName", function () {
+  expect(isStringServerName("example.com")).toBe(true);
+});
+
+// test accessing server names!!!!

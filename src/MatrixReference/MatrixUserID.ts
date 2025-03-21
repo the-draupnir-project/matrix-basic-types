@@ -13,6 +13,7 @@ import {
   userLocalpart,
   userServerName,
 } from "../StringlyTypedMatrix";
+import { StringServerName } from "../StringlyTypedMatrix/StringServerName";
 import { Permalinks } from "./Permalinks";
 
 export class MatrixUserID {
@@ -36,7 +37,7 @@ export class MatrixUserID {
     return userLocalpart(this.userID);
   }
 
-  public get serverName(): string {
+  public get serverName(): StringServerName {
     return userServerName(this.userID);
   }
 

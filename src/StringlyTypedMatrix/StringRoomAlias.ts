@@ -1,14 +1,16 @@
-// SPDX-FileCopyrightText: 2023 - 2024 Gnuxie <Gnuxie@protonmail.com>
+// SPDX-FileCopyrightText: 2023 - 2025 Gnuxie <Gnuxie@protonmail.com>
 //
 // SPDX-License-Identifier: Apache-2.0
 //
 // SPDX-FileAttributionText: <text>
-// This modified file incorporates work from neightrix-basic-types
-// https://github.com/the-draupnir-project/neightrix-basic-types
+// This modified file incorporates work from matrix-basic-types
+// https://github.com/the-draupnir-project/matrix-basic-types
 // </text>
 
+import { StringServerName } from "./StringServerName";
+
 const StringRoomAliasRegex =
-  /^#(?<roomAliasLocalpart>[^\s:]*):(?<roomAliasServerName>\S*)$/;
+  /^#(?<roomAliasLocalpart>[^:]*):(?<roomAliasServerName>\S*)$/;
 
 export type StringRoomAliasBrand = {
   readonly StringRoomAlias: unique symbol;
@@ -37,12 +39,12 @@ export function roomAliasLocalpart(alias: StringRoomAlias): string {
   return match;
 }
 
-export function roomAliasServerName(alias: StringRoomAlias): string {
+export function roomAliasServerName(alias: StringRoomAlias): StringServerName {
   const match = StringRoomAliasRegex.exec(alias)?.groups?.roomAliasServerName;
   if (match === undefined) {
     throw new TypeError(
       "Somehow a StringRoomAlias was created that is invalid."
     );
   }
-  return match;
+  return match as StringServerName;
 }
