@@ -11,6 +11,18 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.4.0] - 2025-07-16
+
+### Changed
+
+- `roomServerName` function has been removed.
+- room ID format changed to support room version's with room ID's that don't have server names.
+
+## [1.3.0] 0 2025-03-21
+
+- Support extracting server names from everything
+- Export matrix.to url regex.
+
 ## [1.2.0] - 2025-03-03
 
 - Put a hard limit of 5 on the number of via servers allowed in a room reference.
