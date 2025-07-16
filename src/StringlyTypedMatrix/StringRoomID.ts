@@ -9,7 +9,7 @@
 
 import { StringServerName } from "./StringServerName";
 
-const StringRoomIDRegex = /^![^:]*:(?<serverName>\S*)/;
+const StringRoomIDRegex = /^!([^:]*:|[a-zA-Z0-9-_]{43})(?<serverName>\S*)/;
 
 export type StringRoomIDBrand = {
   readonly StringRoomID: unique symbol;
