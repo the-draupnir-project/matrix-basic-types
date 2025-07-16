@@ -15,7 +15,6 @@ import {
   isStringRoomAlias,
   isStringRoomID,
   roomAliasServerName,
-  roomIDServerName,
 } from "../StringlyTypedMatrix";
 import { Permalinks } from "./Permalinks";
 import { StringServerName } from "../StringlyTypedMatrix/StringServerName";
@@ -149,10 +148,6 @@ export class MatrixRoomID extends AbstractMatrixRoomReference {
 
   public toRoomIDOrAlias(): StringRoomID {
     return this.reference as StringRoomID;
-  }
-
-  public get serverName(): StringServerName | undefined {
-    return roomIDServerName(this.reference as StringRoomID);
   }
 }
 

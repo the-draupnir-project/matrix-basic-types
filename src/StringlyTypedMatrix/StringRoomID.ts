@@ -7,9 +7,7 @@
 // https://github.com/the-draupnir-project/matrix-basic-types
 // </text>
 
-import { StringServerName } from "./StringServerName";
-
-const StringRoomIDRegex = /^!([^:]*:(?<serverName>\S*)|[a-zA-Z0-9-_]{43})/;
+const StringRoomIDRegex = /^!([^:]*:\S*|[a-zA-Z0-9-_]{43})/;
 
 export type StringRoomIDBrand = {
   readonly StringRoomID: unique symbol;
@@ -27,14 +25,4 @@ export function StringRoomID<T>(
     return value as T extends StringRoomID ? StringRoomID : never;
   }
   throw new TypeError("Not a valid StringRoomID");
-}
-
-export function roomIDServerName(
-  roomID: StringRoomID
-): StringServerName | undefined {
-  const match = StringRoomIDRegex.exec(roomID)?.groups?.serverName;
-  if (match === undefined) {
-    return undefined; // this room does not have a server name
-  }
-  return match as StringServerName;
 }
