@@ -9,7 +9,7 @@
 
 import { StringServerName } from "./StringServerName";
 
-const StringRoomIDRegex = /^!([^:]*:|[a-zA-Z0-9-_]{43})(?<serverName>\S*)/;
+const StringRoomIDRegex = /^!([^:]*:(?<serverName>\S*)|[a-zA-Z0-9-_]{43})/;
 
 export type StringRoomIDBrand = {
   readonly StringRoomID: unique symbol;
@@ -29,10 +29,10 @@ export function StringRoomID<T>(
   throw new TypeError("Not a valid StringRoomID");
 }
 
-export function roomIDServerName(roomID: StringRoomID): StringServerName {
+export function roomIDServerName(roomID: StringRoomID): StringServerName | undefined {
   const match = StringRoomIDRegex.exec(roomID)?.groups?.serverName;
   if (match === undefined) {
-    throw new TypeError("Somehow a StringRoomID was created that is invalid");
+    return undefined; // this room does not have a server name
   }
   return match as StringServerName;
 }

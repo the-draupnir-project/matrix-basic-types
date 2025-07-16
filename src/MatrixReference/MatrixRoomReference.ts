@@ -151,7 +151,7 @@ export class MatrixRoomID extends AbstractMatrixRoomReference {
     return this.reference as StringRoomID;
   }
 
-  public get serverName(): StringServerName {
+  public get serverName(): StringServerName | undefined {
     return roomIDServerName(this.reference as StringRoomID);
   }
 }
