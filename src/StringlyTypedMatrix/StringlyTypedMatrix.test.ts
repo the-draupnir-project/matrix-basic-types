@@ -11,8 +11,6 @@ import {
   userLocalpart,
   StringUserID,
   isStringServerName,
-  roomIDServerName,
-  StringRoomID,
   roomAliasServerName,
 } from "./";
 
@@ -35,12 +33,6 @@ test("StringUserID localpart", function () {
 test("StringRoomID", function () {
   expect(isStringRoomID("!foo:localhost:9999")).toBe(true);
   expect(isStringRoomID("@foo:localhost:9999")).toBe(false);
-});
-
-test("StringRoomID serverName", function () {
-  expect(roomIDServerName(StringRoomID("!foo:localhost:9999"))).toBe(
-    "localhost:9999"
-  );
 });
 
 test("StringRoomAlias", function () {
