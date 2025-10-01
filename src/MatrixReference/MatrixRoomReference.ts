@@ -219,6 +219,10 @@ export class MatrixEventViaRoomID {
   public get reference() {
     return this.room;
   }
+
+  public toPermalink(): string {
+    return `${this.room.toPermalink()}/${encodeURIComponent(this.eventID)}`;
+  }
 }
 
 export class MatrixEventViaAlias {
@@ -231,5 +235,9 @@ export class MatrixEventViaAlias {
 
   public get reference() {
     return this.alias;
+  }
+
+  public toPermalink(): string {
+    return `${this.alias.toPermalink()}/${encodeURIComponent(this.eventID)}`;
   }
 }
