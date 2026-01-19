@@ -1,7 +1,13 @@
 version = 1
-SPDX-PackageName = "@the-draupnir-project/matrix-basic-types"
+SPDX-PackageName = "@gnuxie/tsconfig"
 SPDX-PackageSupplier = "Gnuxie <Gnuxie@protonmail.com>"
-SPDX-PackageDownloadLocation = "https://github.com/the-draupnir-project/matrix-basic-types"
+SPDX-PackageDownloadLocation = "https://github.com/Gnuxie/tsconfig"
+
+[[annotations]]
+path = "REUSE.toml"
+precedence = "aggregate"
+SPDX-FileCopyrightText = "Gnuxie <Gnuxie@protonmail.com>"
+SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
 path = "tsconfig.json"
@@ -10,13 +16,13 @@ SPDX-FileCopyrightText = "Gnuxie <Gnuxie@protonmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
-path = "yarn.lock"
+path = "package-lock.json"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Gnuxie <Gnuxie@protonmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
 
 [[annotations]]
-path = "REUSE.toml"
+path = "yarn.lock"
 precedence = "aggregate"
 SPDX-FileCopyrightText = "Gnuxie <Gnuxie@protonmail.com>"
 SPDX-License-Identifier = "CC0-1.0"
