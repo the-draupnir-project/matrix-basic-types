@@ -4,6 +4,10 @@ SPDX-FileCopyrightText: 2024 Gnuxie <Gnuxie@protonmail.com>
 SPDX-License-Identifier: CC-BY-SA-4.0
 -->
 
+
+> [!WARNING]
+> @the-draupnir-project/matrix-basic-types now lives in the [Draupnir monorepo](https://github.com/the-draupnir-project/Draupnir)
+
 # Matrix basic types
 
 Do you type [Matrix](https://matrix.org) roomIDs, userIDs, and eventIDs as
